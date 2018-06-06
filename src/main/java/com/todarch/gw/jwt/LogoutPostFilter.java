@@ -20,10 +20,10 @@ public class LogoutPostFilter extends GwPostFilter {
   }
 
   private boolean isLogoutEndpoint() {
-    String requestURI = request().getRequestURI();
-    if (requestURI != null) {
-      log.info("Is logging endpoint: {}", requestURI);
-      return requestURI.toLowerCase().contains(PARTIAL_LOGOUT_ENDPOINT);
+    String requestUri = request().getRequestURI();
+    if (requestUri != null) {
+      log.info("Is logging endpoint: {}", requestUri);
+      return requestUri.toLowerCase().contains(PARTIAL_LOGOUT_ENDPOINT);
     }
     log.info("Was not logout endpoint");
     return false;
