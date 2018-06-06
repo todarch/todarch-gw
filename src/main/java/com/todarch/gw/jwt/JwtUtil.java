@@ -27,6 +27,14 @@ public class JwtUtil {
     return authCookie;
   }
 
+  Cookie getLogoutCookie() {
+    Cookie logoutCookie = new Cookie(JWT_COOKIE_NAME, "");
+    logoutCookie.setHttpOnly(true);
+    logoutCookie.setMaxAge(0);
+    logoutCookie.setPath("/");
+    return logoutCookie;
+  }
+
   Optional<String> resolveToken(HttpServletResponse response) {
     String bearerToken = response.getHeader(JWT_HEADER_NAME);
     return doResolveToken(bearerToken);
